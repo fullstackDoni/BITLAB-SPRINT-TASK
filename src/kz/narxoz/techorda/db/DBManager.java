@@ -12,18 +12,26 @@ public class DBManager {
         tasks.add(new Tasks(4L,"Записаться на качку","12.12.2021","НЕТ"));
         tasks.add(new Tasks(5L,"Учить Итальянский","01.05.2021","НЕТ"));
     }
-    public static void AddTask(Tasks tasks){
-        tasks.setId(id);
-        tasks.add(tasks);
+    public static void AddTask(Tasks task){
+        task.setId(id);
+        tasks.add(task);
         id++;
     }
-    public static Long getTask(Long id) {
-        return id;
+    public static Tasks getTask(Long id){
+       Tasks t = null;
+       for (Tasks tf: tasks){
+           if (tf.id == id)
+               t = tf;
+       }
+       return t;
     }
-    static ArrayList<Tasks> getAllTask(){
+    public static ArrayList<Tasks> getAllTask(){
         return tasks;
     }
     public static void deleteTask(Long id){
         tasks.remove(id);
+    }
+
+    public static void updateTask(Tasks task) {
     }
 }
