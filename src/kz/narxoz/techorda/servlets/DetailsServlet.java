@@ -15,9 +15,7 @@ public class DetailsServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        System.out.println(id);
         Tasks tasks = DBManager.getTask(id);
-        System.out.println(tasks.getName());
         request.setAttribute("task" , tasks);
         request.getRequestDispatcher("/details.jsp").forward(request,response);
     }
